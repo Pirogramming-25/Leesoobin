@@ -1,0 +1,167 @@
+body{
+  background: #000;
+  color: #fff;  }
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px; 
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 30px 60px;
+}
+#header .logo {}
+#header .logo img {width: 45px;}
+#header nav {}
+#header nav ul {
+  display: flex;
+  gap:30px;
+}
+#header nav ul li {
+  font-size: 20px;
+  font-weight: bold;
+
+}
+#header nav ul li a {
+  font_size:20px;
+  color:#fff;
+}          /* 링크 색/정렬 줄 때 필요할 수 있음 */
+#header nav ul li a.active {color: #00fa2a;}    /* 현재 메뉴(Interview) 초록색 */
+
+#interview {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px 80px;
+}
+
+#interview .gen_tab {
+  position: relative;
+  text-align: center;
+  margin-bottom: 40px;
+}
+#interview .gen_tab h2 {
+  font-size: 28px;
+
+}
+
+
+#interview .gen_tab .next {
+  position:absolute;
+  right: 0;
+  top:0;
+  font-size: 18px;
+  color: #ccc;
+
+}
+
+
+#interview .card_list {
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+
+@media (max-width: 900px){
+  #interview .card_list{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media (max-width: 600px){
+  #interview .card_list{
+    grid-template-columns: repeat(1,1fr);
+  }
+}
+
+
+#interview .card_list .card {
+  background-color: #2a2a2a;
+  border-radius: 7px;
+  padding: 25px;
+  
+  transition: 0.3s;
+}
+#interview .card_list .card:hover{
+  transform: translateY(-2px);
+  background-color: #333;
+
+}
+
+
+
+#interview .card_list .card .card_top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+
+#interview .card_list .card .card_top img {
+  width: 70px;
+  height: 70px;
+  border-radius:100%;
+  object-fit: cover;
+  margin-right: 20px;
+  transition: 0.3s;
+
+}
+
+#interview .card_list .card:hover .card_top img{
+  transform: scale(1.15);
+}
+
+
+
+#interview .card_list .card .card_top .info {
+
+}
+
+
+#interview .card_list .card .card_top .info h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+#interview .card_list .card .card_top .info .badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+}        /* 배지 공통 모양 */
+#interview .card_list .card .card_top .info .badge.major {background-color: #4a90d9;}
+#interview .card_list .card .card_top .info .badge.double {background-color: #57b894;}
+#interview .card_list .card .card_top .info .badge.non-major {background-color: #d2683f;}
+#interview .card_list .card .card_top .menu_btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 22px;
+  height: 16px;
+  margin-left: auto;
+}
+#interview .card_list .card .card_top .menu_btn span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #aaa;
+    border-radius: 2px;
+    transition: 0.2s;
+}      /* 햄버거 선 */
+#interview .card:hover .menu_btn span:nth-child(1){
+  width: 50%;
+  align-self: flex-start;
+}
+#interview .card:hover .menu_btn span:nth-child(3){
+  width: 50%;
+  align-self: flex-end;
+}
+
+
+
+#interview .card_list .card .comment {
+  font-size: 16px;
+  color:#ddd;
+}
