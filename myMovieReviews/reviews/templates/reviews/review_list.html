@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MY Movie reviews🍿</title>
+  <link rel="stylesheet" href="{% static 'reviews/style.css' %}">
+</head>
+<body>
+  <h1><a href="{% url 'review-list' %}">MY Movie reviews🍿</a></h1>
+  <a href="{% url 'review-create' %}">Add a New review</a>
+  <hr>
+
+  <p>
+    정렬:
+    <a href="?sort=title">제목순</a> |
+    <a href="?sort=-rating">별점 높은순</a> |
+    <a href="?sort=running_time">러닝타임 짧은순</a> |
+    <a href="?sort=-created_at">최신순</a>
+  </p>
+
+  <div class="review-grid">
+    {% for review in reviews %}
+      <div class="review-card">
+        <h2><a href="{% url 'review-detail' review.pk %}">{{ review.title }}</a></h2>
+        <p>개봉년도 {{ review.year }}년</p>
+        <p>장르 {{ review.genre }}</p>
+        <p>별점 {{ review.rating }}</p>
+      </div>
+    {% empty %}
+      <p>등록된 리뷰가 없습니다.</p>
+    {% endfor %}
+  </div>
+</body>
+</html>
